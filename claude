@@ -26,6 +26,7 @@ if ! git -C "$PROJECT_DIR" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 fi
 
 exec docker run --rm -it \
+    --privileged \
     --mount "type=bind,source=${PROJECT_DIR},target=/workspace" \
     -v "${SCRIPT_DIR}/.agents/claude:/root/.claude" \
     -w /workspace \
