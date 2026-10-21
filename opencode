@@ -30,6 +30,7 @@ exec docker run --rm -it \
     --mount "type=bind,source=${PROJECT_DIR},target=/workspace" \
     -v "${SCRIPT_DIR}/.agents/opencode/config:/root/.config/opencode" \
     -v "${SCRIPT_DIR}/.agents/opencode/data:/root/.local/share/opencode" \
+    -v "${SCRIPT_DIR}/.agents/opencode/state:/root/.local/state/opencode" \
     -w /workspace \
     dev-agents:latest \
     opencode "$@"
