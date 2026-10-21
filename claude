@@ -29,6 +29,7 @@ exec docker run --rm -it \
     --privileged \
     --mount "type=bind,source=${PROJECT_DIR},target=/workspace" \
     -v "${SCRIPT_DIR}/.agents/claude:/root/.claude" \
+    -e CLAUDE_CONFIG_DIR=/root/.claude \
     -w /workspace \
     dev-agents:latest \
     claude "$@"
